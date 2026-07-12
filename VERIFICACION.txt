@@ -1,0 +1,4 @@
+Verificación realizada antes de generar el ZIP:
+- Backend: las 6 pruebas Supertest de la versión Hito 3 fueron aprobadas
+- Frontend: npm run build finalizó correctamente con Vite
+- Se incluyeron netlify.toml y render.yaml para despliegue

@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: mercadolocal-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mercadolocal-db
+          property: connectionString
+      - key: DB_SSL
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 2h
+      - key: CORS_ORIGINS
+        sync: false
+
+databases:
+  - name: mercadolocal-db
+    databaseName: mercadolocal
+    user: mercadolocal

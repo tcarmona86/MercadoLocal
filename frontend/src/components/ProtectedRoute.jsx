@@ -1,0 +1,2 @@
+import { Navigate, useLocation } from "react-router-dom"; import { Spinner } from "react-bootstrap"; import useAuth from "../hooks/useAuth.js";
+export default function ProtectedRoute({children}){const {autenticado,cargandoAuth}=useAuth();const location=useLocation();if(cargandoAuth)return <div className="loading-screen"><Spinner animation="border"/></div>;if(!autenticado)return <Navigate to="/login" replace state={{from:location.pathname,mensaje:"Debes iniciar sesión para continuar."}}/>;return children;}

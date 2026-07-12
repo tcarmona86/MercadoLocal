@@ -1,0 +1,2 @@
+import { BrowserRouter } from "react-router-dom"; import AppRouter from "./router/AppRouter.jsx"; import { AuthProvider } from "./context/AuthContext.jsx"; import { ProductProvider } from "./context/ProductContext.jsx"; import { CartProvider } from "./context/CartContext.jsx";
+export default function App(){return <BrowserRouter><AuthProvider><ProductProvider><CartProvider><AppRouter/></CartProvider></ProductProvider></AuthProvider></BrowserRouter>}

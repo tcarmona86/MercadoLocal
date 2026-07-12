@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+ id SERIAL PRIMARY KEY, nombre VARCHAR(100) NOT NULL, apellido VARCHAR(100) DEFAULT '',
+ rut VARCHAR(20), email VARCHAR(150) NOT NULL UNIQUE, password_hash TEXT NOT NULL,
+ foto TEXT, telefono VARCHAR(30), direccion VARCHAR(200), comuna VARCHAR(100), region VARCHAR(100),
+ rol VARCHAR(30) NOT NULL DEFAULT 'cliente' CHECK (rol IN ('cliente','admin')),
+ activo BOOLEAN NOT NULL DEFAULT TRUE, fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
